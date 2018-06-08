@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fea5" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Angular JS</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+	<body>
+	  <div class="container" ng-controller="booklist">
+	    <!-- <div class="page-header">
+	      <h1>Yoyoyo</h1>
+	    </div>
+	    <h2 ng-hide="x &gt; y">Go home!!!!</h2>
+	    <h3 ng-if="true">Take a coffe</h3>
+	    <div ng-switch="color">
+	      <div ng-switch-when="red">
+	        alala
+	      </div>
+	      <div ng-switch-when="blue">
+	        alala2
+	      </div>
+	    </div>
+	    <input type="number" ng-model="value" /> * 3 = {{value * 3}}<br />
+	    <br />
+	    <input type="text" ng-model="item" /> <button class="btn btn-primary btn-xs" ng-click="add()">+</button>
+	    <ul>
+	      <li ng-repeat="item in data track by $index">{{item}} <button class="btn btn-danger btn-xs" ng-click="deleteItem($index)">x</button></li>
+	    </ul><br />
+	    {{ x * y }}<br />
+	    <input type="number" ng-model="a" /> <button ng-click="sum()">+</button> <input type="number" ng-model="b" /> {{result}}
+	    <div class="paint">
+	    	<label for="width">Width</label>
+	    	<input name="width" type="number" ng-model="style.width"><br>
+	    	<label for="height">Height</label>
+	    	<input name="height" type="number" ng-model="style.height"><br>
+	    	<label for="color">Color</label>
+	    	<input name="color" type="text" ng-model="style.color">
+	    	<div class="square" ng-style="{width: style.width + 'px', height: style.height + 'px', background: style.color}"></div>
+	    </div> -->
+	    <div class="page-header"><h1>Book list</h1></div>
+	    <input type="text" placeholder="Filter" class="form-control" ng-model="searchString"><br>
+	    <table class="table table-hover">
+	    	<thead>
+	    		<tr>
+		    		<th ng-click="sortBy('title')"> <i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'title', 'glyphicon-chevron-down' : sortField === '-title'}"></i> Title</th>
+		    		<th ng-click="sortBy('author')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'author', 'glyphicon-chevron-down' : sortField === '-author'}"></i>Author</th>
+		    		<th ng-click="sortBy('date')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'date', 'glyphicon-chevron-down' : sortField === '-date'}"></i>Date</th>
+		    		<th ng-click="sortBy('cost')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'cost', 'glyphicon-chevron-down' : sortField === '-cost'}"></i>Cost</th>
+		    		<th ng-click="sortBy('rate')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'rate', 'glyphicon-chevron-down' : sortField === '-rate'}"></i>Rate</th>
+		    		<!-- <th ng-click="sortBy('id')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'id', 'glyphicon-chevron-down' : sortField === '-rate'}"></i>Id</th>
+		    		<th ></th> -->
+	    		</tr>
+	    	</thead>
+	    	<tbody>
+	    		<tr ng-repeat="book in books | orderBy:sortField | filter: searchString track by $index">
+	    			<td>{{book.title}}</td>
+	    			<td>{{book.author | uppercase}}</td>
+	    			<td>{{book.date | date: 'longDate'}}</td>
+	    			<td>{{book.cost | currency}}</td>
+	    			<td>{{book.rate | number : 1 }}</td>
+	    			<<!-- td>{{book.id}}</td> -->
+	    			<td><button class="btn-danger btn-xs" ng-click="deleteBook(book)"><i class="glyphicon glyphicon-trash"></i></button></td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	    <div class="text-center" ng-if="!books.length">No Data</div>
+	  </div>
+	  <script src="node_modules/angular/angular.js"></script> 
+	  <script src="app/app.module.js"></script> 
+	  <script src="app/controllers/main.controller.js"></script>
+	  <script src="app/controllers/bookslist.controller.js"></script>
+	</body>
+</html>
