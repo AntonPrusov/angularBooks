@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default" role="navigation" ng-controller="Header">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">AngularJS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true" aria-hidden="false">
+            <ul class="nav navbar-nav">
+               <li ng-class="{active: currentMenuItem === '/'}"><a href="#/">Home</a></li>
+               <li ng-class="{active: currentMenuItem === '/books'}"><a href="#/books">Books</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+               <li></li>
+            </ul>
+        </div>
+    </div>
+</nav>

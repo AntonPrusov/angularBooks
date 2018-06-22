@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    app.controller('booklist', function ($scope)
+    app.controller('BooksList', function ($scope)
     {
         $scope.books = [
             {

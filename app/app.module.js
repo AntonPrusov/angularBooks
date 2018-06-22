@@ -1,1 +1,3 @@
-var app = angular.module('fea5', []);
+var app = angular.module('fea5', [
+	'ngRoute'
+	]);

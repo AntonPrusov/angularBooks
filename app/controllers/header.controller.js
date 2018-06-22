@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    app.controller('Main', function ($scope)
+    app.controller('Header', function ($scope)
     {
         
 
