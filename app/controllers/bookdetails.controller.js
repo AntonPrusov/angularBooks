@@ -6,10 +6,20 @@
             {
                 booksRepository.getBookById($routeParams.id)
                 .then(function(response) {
-                    console.log(response.data);
+                    $scope.bookDetails = response.data;
+                    $scope.bookDetails.date = new Date($scope.bookDetails.date);
+                    console.log($scope.bookDetails);
                 }, function(error) {
                     alert(error)}
-                    )
+                    );
+
+                $scope.isEditable = false;
+                $scope.edit = function() {
+                    $scope.isEditable = true;
+                }
+                $scope.cancelEdit = function() {
+                    $scope.isEditable = false;
+                }
             }
         ]);
 }
