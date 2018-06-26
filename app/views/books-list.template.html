@@ -19,7 +19,10 @@
       <td>{{book.date | date: 'longDate'}}</td>
       <td>{{book.cost | currency}}</td>
       <td>{{book.rate | number : 1 }}</td>
-      <td><button class="btn-danger btn-xs" ng-click="deleteBook(book)"><i class="glyphicon glyphicon-trash"></i></button></td>
+      <td>
+        <a href="#/books/{{book.id}}" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i></a>
+        <button class="btn-danger btn-xs" ng-click="deleteBook(book)"><i class="glyphicon glyphicon-trash"></i></button>
+      </td>
     </tr>
   </tbody>
 </table>
