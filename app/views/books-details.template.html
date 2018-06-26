@@ -1,18 +1,33 @@
 <h2 class="page-header">Book Details</h2>
 
-<div ng-if="!isEditable">
+<div ng-if="!isEditable" style="margin-bottom: 80px">
 	<button class="btn btn-info btn-xs" ng-click="edit()">Edit</button>
-	<h3>{{bookDetails.title}}</h3>
-	<img  style="max-width: 300px" alt="book-image" ng-src='{{bookDetails.image || "./app/img/No_Image_Available.jpg"}}'>
+	<h3>{{bookDetails.title}} / {{getAuthorNameById(bookDetails.author_id)}}</h3>
+	<img  style="max-width: 80%" alt="book-image" ng-src='{{bookDetails.image || "./app/img/No_Image_Available.jpg"}}'>
+	<p>{{bookDetails.intro}}</p>
+	<h4>Rate: {{bookDetails.rate}}</h4>
+	<h4>Cost: {{bookDetails.cost}}</h4>
 </div>
 
 <div ng-if="isEditable">
 	<button class="btn btn-success btn-xs" ng-click="save()">Save</button>
 	<button class="btn btn-danger btn-xs" ng-click="cancelEdit()">Cancel</button>
-	<form class="">
+	<form class="" style="margin: 15px 0 60px 0" >
 		<div class="form-group">
 			<label for="title">Title</label>
 			<input class="form-control" type="text" ng-model="bookDetails.title" id="title"></input>
+		</div>
+		<div class="form-group">
+			<label for="Authors">Author</label>
+			<select class="form-control" ng-model="bookDetails.author_id" id="Authors" rows="6" ng-options="author.id as author.name for author in authors"></select>
+		</div>
+		<div class="form-group">
+			<label for="cost">Cost</label>
+			<input class="form-control" type="number" ng-model="bookDetails.cost" id="cost"></input>
+		</div>
+		<div class="form-group">
+			<label for="rate">Rate</label>
+			<input class="form-control" type="number" ng-model="bookDetails.rate" id="rate"></input>
 		</div>
 		<div class="form-group">
 			<label for="date">Date</label>
