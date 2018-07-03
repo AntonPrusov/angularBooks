@@ -1,3 +1,4 @@
 var app = angular.module('fea5', [
-	'ngRoute'
+	'ngRoute',
+	'ui.bootstrap',
 	]);

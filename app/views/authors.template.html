@@ -1,0 +1,24 @@
+<div class="page-header">
+    <h1>Authors</h1>
+</div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th ng-click="sortBy('firstname')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'firstname', 'glyphicon-chevron-down' : sortField === '-title'}"></i> Title</th>
+        <th ng-click="sortBy('lastname')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'lastname', 'glyphicon-chevron-down' : sortField === '-author'}"></i>Author</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="author in authors | orderBy:sortField  track by $index">
+        <td>{{author.firstname}}</td>
+        <td>{{author.lastname | uppercase}}</td>
+        <td>
+            <a href="#/books/{{author.id}}" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+            <button class="btn-danger btn-xs" ng-click="deleteAuthor(author)"><i class="glyphicon glyphicon-trash"></i></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="text-center" ng-if="!authors.length">
+    No Data
+</div>

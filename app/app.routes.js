@@ -18,5 +18,9 @@ app.config(function($routeProvider, $locationProvider) {
 		templateUrl: 'app/views/books-details.template.html',
 		controller: 'BookDetails'
 	})
+	.when('/authors', {
+        templateUrl: 'app/views/authors.template.html',
+        controller: 'AuthorsController'
+    })
 	.otherwise('/');
 })

@@ -8,9 +8,9 @@
 
                 booksRepository.getBookById($routeParams.id)
                 .then(function(response) {
-                    $scope.bookDetails = response.data;
-                    bookModel = angular.copy($scope.bookDetails);
-                    $scope.bookDetails.date = new Date($scope.bookDetails.date);
+                    $scope.authorDetails = response.data;
+                    authorModel = angular.copy($scope.bookDetails);
+                    $scope.authorDetails.date = new Date($scope.authorDetails.date);
                 }, function(error) {
                     alert(error)}
                     );
@@ -35,7 +35,7 @@
                 }
 
                 $scope.cancelEdit = function() {
-                    $scope.bookDetails = angular.copy(bookModel);
+                    $scope.authorDetails = angular.copy(authorModel);
                     $scope.isEditable = false;
                 }
 
