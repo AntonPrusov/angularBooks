@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    app.controller('Login', ['$scope', 'account.repository', '$location', function ($scope, accountRepository, $location)
+    app.controller('Login', ['$scope', 'account.repository', '$location', 'utils', function ($scope, accountRepository, $location, utils)
             {
                 $scope.user =
                 {
@@ -14,8 +14,13 @@
                 {
                     accountRepository.login($scope.user)
                     .then(function (response)  {
+                        utils.notify({
+                            message: 'Authorized',
+                            type: 'success'
+                        });
                         $location.path('/');
                         localStorage.setItem('authToken', response.data.authToken);
+
                         //console.log(localStorage.authToken);
                     }, function (error)
                     {

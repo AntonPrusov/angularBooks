@@ -2,9 +2,14 @@
     {
         'use strict';
 
-        app.controller('AuthorsController', ['$scope', 'authors.repository', function ($scope, authorsRepository)
+        app.controller('AuthorsController', ['$scope', 'authors.repository', 'utils', function ($scope, authorsRepository, utils)
         {
             $scope.sortField = 'firstname';
+
+            utils.notify({
+                message: 'Hello!!!!',
+                type: 'info'
+            })
 
             $scope.sortBy = function (field)
             {
@@ -33,9 +38,13 @@
                 .then(function (response)
                     {
                         $scope.authors = response.data;
+
                     }, function (error)
                     {
-                        alert(error);
+                        utils.notify({
+                            message: error.statusText,
+                            type: 'danger'
+                        });
                     }
                 );
         }

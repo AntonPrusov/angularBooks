@@ -27,5 +27,35 @@ app.config(['$httpProvider', function($httpProvider) {
 				return $q.reject(response);
 			}
 		};
+
 	}]);
 }]);
+
+// translate
+/*
+app.config(['$translateProvider', function($translateProvider) {
+	var translations = {
+		en: {
+			'Authors': 'Authors'
+		},
+		ru: {
+			'Authors': 'Авторы'
+		}
+	};
+
+    $translateProvider
+        .translations('en', translations.en)
+        .translations('ru', translations.ru)
+        .preferredLanguage(localStorage.getItem('preferredLanguage') || 'en');
+}]);*/
+
+app.config(['$translateProvider', function($translateProvider) {
+    $translateProvider.useStaticFilesLoader({
+		prefix: 'i18n/',
+		suffix: '.json'
+	})
+
+    $translateProvider
+        .preferredLanguage(localStorage.getItem('preferredLanguage') || 'en');
+}]);
+
