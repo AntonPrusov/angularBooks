@@ -1,0 +1,10 @@
+<div class="lang-switcher">
+    <button ng-click="toggleMenu()">
+        <img ng-src="./app/directives/lang-switcher/img/{{currentLang.key}}.png" alt="">
+    </button>
+    <ul class="switcher-menu" ng-class="{'shown': showMenu}">
+        <li ng-repeat="lang in languages" ng-click="changeLang(lang.key)">
+            <img ng-src="./app/directives/lang-switcher/img/{{lang.key}}.png" alt="{{lang.value}}">
+        </li>
+    </ul>
+</div>
