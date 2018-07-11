@@ -1,6 +1,7 @@
-var app = angular.module('fea5', [
+window.app = angular.module('fea5', [
 	'ngRoute',
 	'ui.bootstrap',
 	'cgNotify',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+	'xeditable'
 	]);

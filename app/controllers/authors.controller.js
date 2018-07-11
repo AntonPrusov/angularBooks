@@ -31,8 +31,17 @@
 
             $scope.editAuthor = function (author)
             {
-                authorsRepository.editAuthor(author.id, author);
+
             };
+
+            $scope.user = {
+                name: 'awesome user'
+            };
+
+            $scope.updateUser = function () {
+                console.log($scope.user);
+            }
+
 
             authorsRepository.getAuthors()
                 .then(function (response)

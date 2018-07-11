@@ -16,6 +16,12 @@
                 <li class="p-t-10">
                     <lang-switcher></lang-switcher>
                 </li>
+                <li>
+                    <form class="form-inline text-right m-t-5" ng-submit="search()" style="margin-left: 10px">
+                        <input class="form-control" type="text" placeholder="{{'Search' | translate}}" ng-model="searchString">
+                        <button class="btn btn-secondary" type="submit">{{'Search' | translate}}</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

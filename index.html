@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="./app/directives/lang-switcher/lang-switcher.css">
+	<link rel="stylesheet" href="./node_modules/angular-xeditable/dist/css/xeditable.min.css">
 </head>
 	<body ng-controller="Main">
 	  <div class="container">	  
@@ -14,31 +15,5 @@
 	    <div ng-view></div>	
 	    <div ng-include src="'app/views/footer.template.html'"></div>
 	  </div>
-
-	  <script src="node_modules/angular/angular.js"></script> 
-	  <script src="node_modules/angular-route/angular-route.min.js"></script>
-	  <script src="app/app.module.js"></script> 
-	  <script src="app/constants/webApi.com.js"></script>
-	  <script src="app/app.config.js"></script> 
-	  <script src="app/app.routes.js"></script>
-	  <script src="app/controllers/main.controller.js"></script>
-	  <script src="app/controllers/bookslist.controller.js"></script>
-	  <script src="app/controllers/header.controller.js"></script>
-	  <script src="app/services/books.factory.js"></script>
-	  <script src="app/controllers/bookdetails.controller.js"></script>
-	  <script src="app/controllers/login.controller.js"></script>
-	  <script src="app/services/account.factory.js"></script>
-      <script src="app/controllers/authors.controller.js"></script>
-      <script src="app/services/authors.factory.js"></script>
-      <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-	  <script src="app/modals/confirm/confirm.controller.js"></script><script src="app/controllers/addbook.controller.js"></script>
-      <script src="node_modules/@cgross/angular-notify/dist/angular-notify.min.js"></script>
-	  <script src="app/services/utils.service.js"></script>
-	  <script src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
-	  <script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-	  <script src="app/directives/lang-switcher/lang-switcher.directive.js"></script>
-
-
-
 	</body>
 </html>

@@ -59,3 +59,6 @@ app.config(['$translateProvider', function($translateProvider) {
         .preferredLanguage(localStorage.getItem('preferredLanguage') || 'en');
 }]);
 
+app.run(['editableOptions', function(editableOptions) {
+    editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+}]);

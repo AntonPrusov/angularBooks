@@ -9,6 +9,7 @@
             templateUrl: './app/directives/lang-switcher/lang-switcher.template.html',
             scope: {},
             controller: ['$scope', '$translate', '$rootScope', function ($scope, $translate, $rootScope) {
+
                 $scope.languages = [
                     {key: 'en', value: 'English'},
                     {key: 'ru', value: 'Rusiian'}
@@ -31,13 +32,24 @@
                         return item.key === key;
                     })[0];
 
-                    $scope.showMenu = false;
+                    $scope.showMenu = !$scope.showMenu;
 
                     $translate.use(key);
 
-                    localStorage.setItem('preferredLanguage', key);
+                    localStorage.setItem('preferredLanguage', key)
 
-                }
+                    $rootScope.$broadcast('changeLang', key);
+
+                };
+
+                $scope.$on('changeLang', function (event, value) {
+                    if ($scope.currentLang.key !== value) {
+                        $scope.currentLang =  $scope.languages.filter(function (item) {
+                            return item.key === value;
+                        })[0];
+                    }
+                })
+
             }]
         }
     }

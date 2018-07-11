@@ -6,6 +6,21 @@
             {
                 $scope.sortField = 'title';
 
+                var searchResult = sessionStorage.getItem('searchResult');
+
+                if (searchResult) {
+                    $scope.books = JSON.parse(searchResult);
+                    sessionStorage.removeItem('searchResult')
+                } else {
+                    booksRepository.getBooks()
+                        .then(function (response){
+                            $scope.books = response.data;
+                        }, function (error)
+                        {
+                            alert(error);
+                        });
+                }
+
                 $scope.sortBy = function (field)
                 {
                     if ($scope.sortField == field)
@@ -56,14 +71,11 @@
 
                 };
 
-                booksRepository.getBooks()
-                .then(function (response){
-                    $scope.books = response.data;
-                }, function (error)
-                {
-                    alert(error);
-                }
-                );
+
+
+                $scope.$on('search', function (event, value) {
+                    $scope.books = value;
+                });
             }
         ]);
 

@@ -14,12 +14,13 @@
         };
 
         function _editAuthor(id, data) {
-            return $http.put(webApi.DOMAIN + '/api/v2/authors/' + id, data);
+
         };
 
         function _deleteAuthor(id) {
             return $http.delete(webApi.DOMAIN + '/api/v2/authors/' + id);
         };
+
 
     }]);
 })();

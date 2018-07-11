@@ -8,6 +8,7 @@
             updateBookById: _updateBookById,
             addBook: _addBook,
             deleteBook: _deleteBook,
+            searchBy: _searchBy,
         };
 
         function _getBooks() {
@@ -32,6 +33,10 @@
 
         function _deleteBook(id) {
             return $http.delete(webApi.DOMAIN + '/api/v2/books/' + id);
+        }
+
+        function _searchBy(string) {
+            return $http.get(webApi.DOMAIN + '/api/v2/search?string=' + string);
         }
     }]);
 })();

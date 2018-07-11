@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    app.controller('Header', ['$scope', '$translate', function ($scope, $translate)
+    app.controller('Header',  ['$scope', '$translate', 'books.repository', '$rootScope', '$location', function ($scope, $translate, booksRepository, $rootScope, $location)
     {
         $scope.isLogged = function() {
         	return localStorage.getItem('authToken') ? true : false;
@@ -16,6 +16,21 @@
             $translate.use( curlang );
 
             localStorage.setItem('preferredLanguage', curlang)
+        };
+        
+        $scope.search = function () {
+            booksRepository.searchBy($scope.searchString)
+                .then(function (response) {
+
+                    sessionStorage.setItem('searchResult', JSON.stringify(response.data));
+
+                    $rootScope.$broadcast('search', response.data);
+
+                    $location.path('/books');
+
+                }, function (error) {
+                    alert(error);
+                });
         }
     }
     ]);
