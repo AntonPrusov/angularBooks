@@ -8,9 +8,9 @@
 
                 booksRepository.getBookById($routeParams.id)
                 .then(function(response) {
-                    $scope.authorDetails = response.data;
-                    authorModel = angular.copy($scope.bookDetails);
-                    $scope.authorDetails.date = new Date($scope.authorDetails.date);
+                    $scope.bookDetails = response.data;
+                    bookModel = angular.copy($scope.bookDetails);
+                    $scope.bookDetails.date = new Date($scope.bookDetails.date);
                 }, function(error) {
                     alert(error)}
                     );

@@ -42,6 +42,21 @@
                 console.log($scope.user);
             }
 
+            $scope.saveAuthor = function(data, authorId) {
+                authorsRepository.editAuthor(authorId, data)
+                    .then(function (responce) {
+                        utils.notify({
+                            message: 'Автор отредактирован',
+                            type: 'success'
+                        })
+                    }, function (error) {
+                        utils.notify({
+                            message: error,
+                            type: 'danger'
+                        })
+                    });
+            }
+
 
             authorsRepository.getAuthors()
                 .then(function (response)
