@@ -4,7 +4,8 @@
         return {
             getAuthors: _getAuthors,
             editAuthor: _editAuthor,
-            deleteAuthor: _deleteAuthor
+            deleteAuthor: _deleteAuthor,
+            updateAuthor: _updateAuthor
         };
 
 
@@ -20,6 +21,10 @@
         function _deleteAuthor(id) {
             return $http.delete(webApi.DOMAIN + '/api/v2/authors/' + id);
         };
+
+        function _updateAuthor(data) {
+            return $http.post(webApi.DOMAIN + '/api/v2/authors/', data)
+        }
 
 
     }]);

@@ -1,5 +1,6 @@
 <div class="page-header">
     <h1>{{'Authors' | translate}}</h1>
+    <button class="btn btn-info pull-right" style="margin-top: 15px" ng-click="addAuthor()">Добавить автора</button>
 </div>
 <table class="table table-hover">
     <thead>
@@ -22,7 +23,8 @@
                 <button class="btn btn-warning btn-xs" ng-click="editableForm.$show()"><i class="glyphicon glyphicon-pencil"></i></button>
                 <button class="btn-danger btn-xs" ng-click="deleteAuthor(author)"><i class="glyphicon glyphicon-trash"></i></button>
             </span>
-            <form editable-form name="editableForm" onaftersave="saveAuthor($data, author.id)">
+
+            <form editable-form name="editableForm" onaftersave="saveAuthor($data, author.id)" shown="inserted === author">
                 <span ng-show="editableForm.$visible">
                     <button type="submit" class="btn btn-primary btn-xs" ng-disabled="editableForm.$waiting"><i class="glyphicon glyphicon-ok"></i></button>
                     <button type="button" class="btn btn-danger btn-xs" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()"><i class="glyphicon glyphicon-remove"></i></button>
