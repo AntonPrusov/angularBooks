@@ -4,36 +4,33 @@
 </div>
 <table class="table table-hover">
     <thead>
-    <tr>
-        <th ng-click="sortBy('firstname')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'firstname', 'glyphicon-chevron-down' : sortField === '-title'}"></i> Title</th>
-        <th ng-click="sortBy('lastname')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'lastname', 'glyphicon-chevron-down' : sortField === '-author'}"></i>Author</th>
-        <th>Actions</th>
-    </tr>
+        <tr>
+            <th ng-click="sortBy('firstname')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'firstname', 'glyphicon-chevron-down' : sortField === '-title'}"></i> Title</th>
+            <th ng-click="sortBy('lastname')"><i class="glyphicon" ng-class="{'glyphicon-chevron-up' : sortField === 'lastname', 'glyphicon-chevron-down' : sortField === '-author'}"></i>Author</th>
+            <th>Actions</th>
+        </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="author in authors | orderBy:sortField  track by $index">
-        <td>
-            <span editable-text="author.firstname" e-ng-model="author.firstname" e-form="editableForm" e-ng-model="author.firstname" e-name="firstname">{{author.firstname}}</span>
-        </td>
-        <td>
-            <span editable-text="author.lastname" e-ng-model="author.lastname" e-form="editableForm" e-ng-model="author.lastname" e-name="lastname">{{author.lastname | uppercase}}</span>
-        </td>
-        <td>
-            <span ng-show="!editableForm.$visible">
-                <button class="btn btn-warning btn-xs" ng-click="editableForm.$show()"><i class="glyphicon glyphicon-pencil"></i></button>
-                <button class="btn-danger btn-xs" ng-click="deleteAuthor(author)"><i class="glyphicon glyphicon-trash"></i></button>
-            </span>
-
-            <form editable-form name="editableForm" onaftersave="saveAuthor($data, author.id)" shown="inserted === author">
-                <span ng-show="editableForm.$visible">
-                    <button type="submit" class="btn btn-primary btn-xs" ng-disabled="editableForm.$waiting"><i class="glyphicon glyphicon-ok"></i></button>
-                    <button type="button" class="btn btn-danger btn-xs" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+        <tr ng-repeat="author in authors | orderBy:sortField  track by $index">
+            <td>
+                <span editable-text="author.firstname" e-ng-model="author.firstname" e-form="editableForm" e-ng-model="author.firstname" e-name="firstname">{{author.firstname}}</span>
+            </td>
+            <td>
+                <span editable-text="author.lastname" e-ng-model="author.lastname" e-form="editableForm" e-ng-model="author.lastname" e-name="lastname">{{author.lastname | uppercase}}</span>
+            </td>
+            <td>
+                <span ng-show="!editableForm.$visible">
+                    <button class="btn btn-warning btn-xs" ng-click="editableForm.$show()"><i class="glyphicon glyphicon-pencil"></i></button>
+                    <button class="btn-danger btn-xs" ng-click="deleteAuthor(author)"><i class="glyphicon glyphicon-trash"></i></button>
                 </span>
-            </form>
-        </td>
-
-
-    </tr>
+                <form editable-form name="editableForm" onaftersave="saveAuthor($data, author.id)" shown="inserted === author">
+                    <span ng-show="editableForm.$visible">
+                        <button type="submit" class="btn btn-primary btn-xs" ng-disabled="editableForm.$waiting"><i class="glyphicon glyphicon-ok"></i></button>
+                        <button type="button" class="btn btn-danger btn-xs" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()"><i class="glyphicon glyphicon-remove"></i></button>
+                    </span>
+                </form>
+            </td>
+        </tr>
     </tbody>
 </table>
 <div class="text-center" ng-if="!authors.length">
